@@ -1,38 +1,212 @@
-.App {
-  text-align: center;
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+  box-sizing: border-box;
+  background-color: #f7f7f7; 
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.background-wrapper {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  background-image: url(../public/images/background.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh; 
 }
 
-.App-link {
-  color: #61dafb;
+
+.app-name { 
+  font-size: 2.3rem; 
+  color:#007bff; 
+  margin-bottom: 1.5rem; 
+} 
+
+.App { 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  width: 65rem; 
+  min-height: 45rem; 
+  background-color: rgba(255, 255, 255, 0.9);
+  text-align: center; 
+  margin: 0 auto; 
+  border-radius: 1rem; 
+  padding-bottom: 3rem; 
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); 
+  font-family: 'Open Sans', sans-serif;
+  border: 1px solid rgba(200, 200, 200, 0.5);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.city-search { 
+  width: 100%; 
+  max-width: 40rem; 
+  box-sizing: border-box; 
+  border: 2px solid rgb(204, 204, 204); 
+  outline: none; 
+  border-radius: 2rem; 
+  font-size: 1.5rem; 
+  background-color: #e5eef0; 
+  background-position: 1rem 1.2rem; 
+  background-repeat: no-repeat; 
+  padding: 1.2rem 4rem; 
+  -webkit-transition: width 0.4s ease-in-out; 
+  transition: width 0.4s ease-in-out; 
+  color: #333; 
+} 
+
+.city-search:focus { 
+  width: 100%; 
+} 
+
+/* Search button */
+.search-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 1.2rem 2rem;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 10px;
 }
+
+.search-button:hover {
+  background-color: #0056b3;
+}
+
+
+.city-name { 
+  font-size: 1.5rem; 
+  color: #444; 
+  margin-bottom: .8rem; 
+} 
+
+.date { 
+  font-size: 1.25em; 
+  font-weight: 500; 
+  color: #777; 
+} 
+
+.icon-temp { 
+  font-size: 3rem; 
+  font-weight: 700; 
+  color: #1e2432; 
+  text-align: center; 
+} 
+
+.deg { 
+  font-size: 1.3rem; 
+  vertical-align: super; 
+} 
+
+.des-wind { 
+  font-weight: 500; 
+  color: #666; 
+} 
+
+.error-message { 
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  color: #c11b1b;
+  font-size: 2rem;
+  margin-top: 2rem;
+  gap: 1.5rem;
+} 
+
+.Loader { 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  height: 100%; 
+} 
+
+.Loader>div { 
+  margin: 0 auto; 
+} 
+
+.weather-icon { 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+} 
+
+.weather-icon img { 
+  width: 10rem; 
+  height: 10rem; 
+  border-radius: 50%; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+/* Dropdown Styles */
+.select-container {
+  position: relative;
+  display: inline-block;
+  margin-top: 1.6rem;
+  font-size: 1.6rem;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.select-container select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100%;
+  max-width: 20rem;
+  box-sizing: border-box;
+  border: 2px solid rgb(204, 204, 204);
+  outline: none;
+  border-radius: 2rem;
+  background-color: #e5eef0;
+  background-position: 1rem 1.2rem;
+  background-repeat: no-repeat;
+  padding: 1.2rem 4rem;
+  transition: width 0.4s ease-in-out;
+  color: #666;
+  cursor: pointer;
+}
+
+.select-container select:focus {
+  width: 100%;
+}
+
+/* styles for the dropdown arrow */
+.select-container::after {
+  content: '\25BC'; /* down arrow */
+  font-size: 1.5rem;
+  color: #333;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+.temperature-message {
+  font-size: 1.2rem;
+  color: #007bff;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 650px) {
+  .App {
+    width: 80%;
+  }
+  .city-search {
+    width: 100%;
+  }
+  .search-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+} 
