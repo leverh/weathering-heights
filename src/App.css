@@ -22,30 +22,30 @@ html {
 
 .app-name { 
   font-size: 2.3rem; 
-  color:#007bff; 
+  color:#fff; 
   margin-bottom: 1.5rem; 
 } 
 
 .App { 
   display: flex; 
   flex-direction: column; 
-  justify-content: center; 
+  justify-content: space-evenly; 
   align-items: center; 
-  width: 65rem; 
-  min-height: 45rem; 
-  background-color: rgba(255, 255, 255, 0.9);
+  width: 30rem; 
+  min-height: 60rem; 
+  background: linear-gradient(to bottom, #4D226D, #215389);
   text-align: center; 
   margin: 0 auto; 
   border-radius: 1rem; 
   padding-bottom: 3rem; 
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); 
   font-family: 'Open Sans', sans-serif;
-  border: 1px solid rgba(200, 200, 200, 0.5);
+  border: 2px solid linear-gradient(to bottom, #4D226D, #215389);
 }
 
 
 .city-search { 
-  width: 100%; 
+  width: 75%; 
   max-width: 40rem; 
   box-sizing: border-box; 
   border: 2px solid rgb(204, 204, 204); 
@@ -55,7 +55,7 @@ html {
   background-color: #e5eef0; 
   background-position: 1rem 1.2rem; 
   background-repeat: no-repeat; 
-  padding: 1.2rem 4rem; 
+  padding: 1rem 2.5rem; 
   -webkit-transition: width 0.4s ease-in-out; 
   transition: width 0.4s ease-in-out; 
   color: #333; 
@@ -65,39 +65,65 @@ html {
   width: 100%; 
 } 
 
-/* Search button */
+.weather-vane-image {
+  animation: spin 3s linear infinite;
+  width: 5rem;  
+  height: auto;
+  transform-origin: bottom center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 1rem;
+}
+
+@keyframes spin {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+
+/* Search bar section */
+.search-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.3rem;
+}
+
 .search-button {
-  background-color: #007bff;
-  color: #fff;
+  background-color: #ADD8E6;
+  color: #000080;
   border: none;
   border-radius: 20px;
-  padding: 1.2rem 2rem;
-  font-size: 16px;
+  padding: 1rem 2.5rem;
+  font-size: 1.5rem;
   cursor: pointer;
   margin-left: 10px;
+  width: 75%; 
+  max-width: 40rem;
 }
 
 .search-button:hover {
-  background-color: #0056b3;
+  background-color: #8FBEDC;
 }
 
 
 .city-name { 
   font-size: 1.5rem; 
-  color: #444; 
+  color: #fff; 
   margin-bottom: .8rem; 
 } 
 
 .date { 
   font-size: 1.25em; 
   font-weight: 500; 
-  color: #777; 
+  color: #fff; 
 } 
 
 .icon-temp { 
   font-size: 3rem; 
   font-weight: 700; 
-  color: #1e2432; 
+  color: #fff; 
   text-align: center; 
 } 
 
@@ -107,15 +133,15 @@ html {
 } 
 
 .des-wind { 
-  font-weight: 500; 
-  color: #666; 
+  font-weight: 600; 
+  color: #fff; 
 } 
 
 .error-message { 
   display: flex; 
   justify-content: center;
   align-items: center;
-  color: #c11b1b;
+  color: #fff;
   font-size: 2rem;
   margin-top: 2rem;
   gap: 1.5rem;
@@ -146,6 +172,7 @@ html {
 }
 
 /* Dropdown Styles */
+
 .select-container {
   position: relative;
   display: inline-block;
@@ -161,27 +188,30 @@ html {
   width: 100%;
   max-width: 20rem;
   box-sizing: border-box;
-  border: 2px solid rgb(204, 204, 204);
-  outline: none;
+  border: 2px solid #ADD8E6;
   border-radius: 2rem;
-  background-color: #e5eef0;
-  background-position: 1rem 1.2rem;
-  background-repeat: no-repeat;
-  padding: 1.2rem 4rem;
-  transition: width 0.4s ease-in-out;
-  color: #666;
+  background-color: #ADD8E6;
+  padding: 1.2rem 2rem;
+  font-size: 1.6rem;
+  font-family: 'Open Sans', sans-serif;
+  color: #333333;
   cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.select-container select:hover {
+  border-color: #666666;
 }
 
 .select-container select:focus {
-  width: 100%;
+  border-color: #444444;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-/* styles for the dropdown arrow */
 .select-container::after {
   content: '\25BC'; /* down arrow */
   font-size: 1.5rem;
-  color: #333;
+  color: #333333;
   position: absolute;
   top: 50%;
   right: 10px;
@@ -190,22 +220,24 @@ html {
 
 .temperature-message {
   font-size: 1.2rem;
-  color: #007bff;
-  margin-top: 1rem;
+  color: #fff;
+  margin-top: 3rem;
   font-weight: bold;
 }
 
 .welcome-section {
   position: relative;
+  perspective: 1000px;
 }
 
 .instruction {
   font-family: 'Open Sans', sans-serif;
   font-size: 1.5rem;
-  color: #777;
+  color: #fff;
+  font-weight: 600;
 }
 
-.cloud {
+/* .cloud {
   background-image: url('../public/images/cloud.svg');
   background-color: transparent;
   width: 150px;
@@ -216,7 +248,6 @@ html {
   background-repeat: no-repeat;
 }
 
-/* Individual cloud adjustments */
 .cloud:nth-child(1) {
   top: -130%;
   left: -25%;
@@ -225,7 +256,7 @@ html {
 .cloud:nth-child(2) {
   top: -120%;
   left: 30%;
-  animation-delay: 2s; /* Different timing for variety */
+  animation-delay: 2s; 
 }
 
 .cloud:nth-child(3) {
@@ -261,7 +292,7 @@ html {
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-20px); }
-}
+} */
 
 @media screen and (max-width: 650px) {
   .App {
@@ -283,3 +314,4 @@ html {
     display: none;
   }
 } 
+

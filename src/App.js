@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import { Oval } from 'react-loader-spinner';
 
-
 import './App.css';
 
 
@@ -126,6 +125,12 @@ function WeatherApp() {
             <h1 className="app-name">Welcome to Weathering Heights!</h1>
             <p className='instruction'>Enter a city name to get started.</p>
           </div>
+
+          <div className="weather-vane">
+          <img src="/images/weather-vane.svg" alt="Weather Vane" className="weather-vane-image" />
+
+          </div>
+
         </div>
       )}
       <div className="search-bar">
@@ -145,13 +150,14 @@ function WeatherApp() {
     Search
   </button>
   <select
-    className="select-container"
-    value={unit}
-    onChange={(e) => handleUnitChange(e.target.value)}
-  >
-    <option value="metric">Metric (°C, m/s)</option>
-    <option value="imperial">Imperial (°F, mph)</option>
-  </select>
+  className="select-dropdown"
+  value={unit}
+  onChange={(e) => handleUnitChange(e.target.value)}
+>
+  <option value="metric">Metric (°C, m/s)</option>
+  <option value="imperial">Imperial (°F, mph)</option>
+</select>
+
 </div>
 
       {weatherData.loading && (
