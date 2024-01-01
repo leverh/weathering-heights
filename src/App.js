@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import { Oval } from 'react-loader-spinner';
 
+
 import './App.css';
 
 
@@ -108,9 +109,25 @@ function WeatherApp() {
   
 
   return (
-    <div className="background-wrapper">
+   <div className="background-wrapper">
     <div className="App">
-      <h1 className="app-name">Weathering Heights</h1>
+      {!weatherData.data.main && !weatherData.loading && !weatherData.error && (
+        <div className="welcome-section">
+          {/* Animated clouds */}
+          <div className="cloud"></div>
+          <div className="cloud"></div>
+          <div className="cloud"></div>
+          <div className="cloud"></div>
+          <div className="cloud"></div>
+          <div className="cloud"></div>
+          <div className="cloud"></div>
+
+          <div className="welcome-message">
+            <h1 className="app-name">Welcome to Weathering Heights!</h1>
+            <p className='instruction'>Enter a city name to get started.</p>
+          </div>
+        </div>
+      )}
       <div className="search-bar">
   <input
     type="text"
@@ -157,6 +174,7 @@ function WeatherApp() {
 
         </>
       )}
+
       {weatherData.data && weatherData.data.main && (
         <div>
           <div className="city-name">

@@ -195,6 +195,74 @@ html {
   font-weight: bold;
 }
 
+.welcome-section {
+  position: relative;
+}
+
+.instruction {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5rem;
+  color: #777;
+}
+
+.cloud {
+  background-image: url('../public/images/cloud.svg');
+  background-color: transparent;
+  width: 150px;
+  height: 90px;
+  position: absolute;
+  animation: float 5s ease-in-out infinite;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Individual cloud adjustments */
+.cloud:nth-child(1) {
+  top: -130%;
+  left: -25%;
+}
+
+.cloud:nth-child(2) {
+  top: -120%;
+  left: 30%;
+  animation-delay: 2s; /* Different timing for variety */
+}
+
+.cloud:nth-child(3) {
+  top: -110%;
+  left: 65%;
+  animation-delay: 4s;
+}
+
+.cloud:nth-child(4) {
+  top: -90%;
+  left: 10%;
+}
+
+.cloud:nth-child(5) {
+  top: -85%;
+  left: 60%;
+  animation-delay: 2.5s;
+}
+
+.cloud:nth-child(6) {
+  top: -100%;
+  left: 20%;
+  animation-delay: 3.5s;
+}
+
+.cloud:nth-child(7) {
+  top: -100%;
+  left: 100%;
+  animation-delay: 1s;
+}
+
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
 @media screen and (max-width: 650px) {
   .App {
     width: 80%;
@@ -208,5 +276,10 @@ html {
     justify-content: center;
     align-items: center;
     gap: 1rem;
+  }
+  .cloud:nth-child(7),
+  .cloud:nth-child(6),
+  .cloud:nth-child(1) {
+    display: none;
   }
 } 
