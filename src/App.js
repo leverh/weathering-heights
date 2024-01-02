@@ -193,7 +193,7 @@ function WeatherApp() {
           </div>
           <div className="icon-temp">
             <img
-              className=""
+              className="custom-weather-icon"
               src={`https://openweathermap.org/img/wn/${weatherData.data.weather[0].icon}@2x.png`}
               alt={weatherData.data.weather[0].description}
             />

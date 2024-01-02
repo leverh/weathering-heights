@@ -158,16 +158,21 @@ html {
   margin: 0 auto; 
 } 
 
+.icon-temp {
+  margin-top: 1.5rem;
+}
 .weather-icon { 
   display: flex; 
   justify-content: center; 
   align-items: center; 
 } 
 
-.weather-icon img { 
+.custom-weather-icon {
+  filter: brightness(175%);
   width: 10rem; 
   height: 10rem; 
   border-radius: 50%; 
+  border: 2px #f7f7f7 solid;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
@@ -221,8 +226,10 @@ html {
 .temperature-message {
   font-size: 1.2rem;
   color: #fff;
-  margin-top: 3rem;
+  padding-top: 3rem;
   font-weight: bold;
+  max-width: 80%;
+  margin: 0 auto;
 }
 
 .welcome-section {
